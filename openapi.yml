@@ -16,26 +16,24 @@ paths:
               schema: # 4 レスポンスの JSON 構造
                 type: array
                 items:
-                  type: object # 5配列の中身の要素
-                  properties:
-                    name:
-                      type: string
+                  "$ref": "#/components/schemas/App"
     post:
       requestBody:
         content:
           "application/json":
             schema:
-              type: object
-              properties:
-                name:
-                  type: string
+              "$ref": "#/components/schemas/App"
       responses:
         "200":
           description: created response
           content:
             "application/json":
               schema:
-                type: object
-                properties:
-                  name:
-                    type: string
+                "$ref": "#/components/schemas/App"
+components:
+  schemas:
+    App:
+      type: object
+      properties:
+        name:
+          type: string

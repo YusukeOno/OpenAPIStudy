@@ -1,0 +1,22 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  version: 0.1.0
+servers:
+  - url: https://example.com
+    description: example server
+paths:
+  "/apps": # 1 エンドポイント /apps の定義
+    get:
+      responses:
+        "200": # 2 ステータスコードが 200 の定義
+          description: example
+          content:
+            "application/json": # 3 JSON を返すときの定義
+              schema: # 4 レスポンスの JSON 構造
+                type: array
+                items:
+                  type: object # 5配列の中身の要素
+                  properties:
+                    name:
+                      type: string

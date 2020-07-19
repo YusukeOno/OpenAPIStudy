@@ -30,7 +30,26 @@ paths:
             "application/json":
               schema:
                 "$ref": "#/components/schemas/App"
+  "/apps/{id}":
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      responses:
+        "200":
+          "$ref": "#/components/responses/AppResponse"
+
 components:
+  responses:
+    AppResponse:
+      description: app response
+      content:
+        "application/json":
+          schema:
+            "$ref": "#/components/schemas/App"
   schemas:
     App:
       type: object
